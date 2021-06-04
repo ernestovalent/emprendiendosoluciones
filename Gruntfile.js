@@ -1,13 +1,21 @@
+const sass = require('node-sass');
 module.exports = function (grunt) {
 	grunt.initConfig({
-		
+
 		//Watch listering all changes
 		watch: {
 			express: {
-				files:  [ 'src/server.js' ],
-				tasks:  [ 'express:dev' ],
+				files: ['src/server.js'],
+				tasks: ['express:dev'],
 				options: {
 					spawn: false, // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+					livereload: true
+				}
+			},
+			sass: {
+				files: ['src/sass/*.sass'],
+				tasks: ['sass_compile'],
+				options: {
 					livereload: true
 				}
 			}
@@ -28,7 +36,7 @@ module.exports = function (grunt) {
 		browserSync: {
 			dev: {
 				bsFiles: {
-					src: ['src/index.html','src/css/*.css']
+					src: ['src/index.html', 'src/css/*.css']
 				},
 				options: {
 					watchTask: true,
@@ -36,10 +44,29 @@ module.exports = function (grunt) {
 					open: false
 				}
 			}
+		},
+
+		// Sass compile
+		sass: {
+			options: {
+				implementation: sass,
+				outputStyle: "expanded",
+				sourceMap: true
+			},
+			dist: {
+				files: {
+					'src/css/style.css': 'src/sass/principal.sass'
+				}
+			}
 		}
+
+
 	});
 	grunt.loadNpmTasks('grunt-express-server');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browser-sync');
-	grunt.registerTask('dev', ['express:dev','browserSync:dev','watch']);
+	grunt.loadNpmTasks('grunt-sass');
+
+	grunt.registerTask('sass_compile', ['sass']);
+	grunt.registerTask('dev', ['express:dev', 'sass_compile', 'browserSync:dev', 'watch']);
 };
