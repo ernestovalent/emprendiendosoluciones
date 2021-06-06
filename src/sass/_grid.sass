@@ -1,19 +1,19 @@
 // Grid and sizes
 $cols: 12 !default
-$s-screen: 400px !default
-$m-screen: 600px !default
-$l-screen: 990px !default
-$xl-screen: 1280px !default
+$breakpoint-small: 400px !default
+$breakpoint-medium: 600px !default
+$breakpoint-large: 990px !default
+$breakpoint-extralarge: 1280px !default
 	
 // Media Querys
-$s: "only screen and (min-width : #{$s-screen})" !default
-$m: "only screen and (min-width : #{$m-screen})" !default
-$l: "only screen and (min-width : #{$l-screen})" !default
-$xl: "only screen and (min-width : #{$xl-screen})" !default
+$s: "only screen and (min-width : #{$breakpoint-small})" !default
+$m: "only screen and (min-width : #{$breakpoint-medium})" !default
+$l: "only screen and (min-width : #{$breakpoint-large})" !default
+$xl: "only screen and (min-width : #{$breakpoint-extralarge})" !default
 
 .container
 	margin: 0 auto
-	max-width: 1280px
+	max-width: #{$breakpoint-extralarge}
 	width: 95%
 	@media #{$m}
 		width: 90%

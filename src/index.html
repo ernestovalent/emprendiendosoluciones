@@ -17,34 +17,52 @@
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+	<header>
+		<p>Logo</p>
+		<nav>
+			<button class="hamb hamb-slider" type="button">
+				<span class="hamb-box">
+					<span class="hamb-inner"></span>
+				</span>
+			</button>
+			<ul class="menu">
+				<a href="#"><li>Inicio</li></a>
+				<a href="#"><li>¿Que hacemos?</li></a>
+				<a href="#"><li>Nuestros proyectos</li></a>
+				<a href="#"><li>Nuestro equipo</li></a>
+				<a href="#"><li>Contactanos</li></a>
+				<a href="#"><li>QR</li></a>
+			</ul>
+		</nav>
+	</header>
 
-	<div id="fullpage">
-		<div class="section" id="presentation">
+	<main id="fullpage">
+		<section class="section" id="presentation">
 			<div class="container">
 				<h1>Emprendiendo Soluciones</h1>
 			</div>
-		</div>
-		<div class="section">
-			<h1>¿Que hacemos?</h1>
-		</div>
-		<div class="section">
-			<h1>Nuestros proyectos</h1>
-		</div>
-		<div class="section">
-			<h1>Nuestro equipo</h1>
-		</div>
-		<div class="section">
-			<h1>Contactanos</h1>
-		</div>
-		<div class="section">
-			<h1>QR</h1>
-		</div>
-	</div>
+		</section>
+		<section class="section" id="todo">
+			<h2>¿Que hacemos?</h2>
+		</section>
+		<section class="section" id="projects">
+			<h2>Nuestros proyectos</h2>
+		</section>
+		<section class="section" id="team">
+			<h2>Nuestro equipo</h2>
+		</section>
+		<section class="section" id="contact">
+			<h3>Contactanos</h3>
+		</section>
+		<footer class="section">
+			<h4>QR</h4>
+		</footer>
+	</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
 		integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
@@ -52,6 +70,12 @@
 	</script>
 	<script>
 		new fullpage('#fullpage');
+		var hamb = document.querySelector('.hamb');
+		var menu = document.querySelector('.menu');
+		hamb.addEventListener("click",function () {
+			this.classList.toggle("active");
+			menu.classList.toggle("active");
+		},false)
 	</script>
 </body>
 

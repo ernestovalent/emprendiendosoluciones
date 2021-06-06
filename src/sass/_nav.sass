@@ -1,0 +1,122 @@
+$hamb-padding-x           : 30px !default
+$hamb-padding-y           : 20px !default
+$hamb-layer-width         : 25px !default
+$hamb-layer-height        : 4px !default
+$hamb-layer-spacing       : 6px !default
+$hamb-layer-color         : #FFF !default
+$hamb-layer-border-radius : 4px !default
+$hamb-hover-opacity       : 0.9 !default
+$hamb-active-layer-color  : $hamb-layer-color !default
+$hamb-active-hover-opacity: $hamb-hover-opacity !default
+  
+header
+  width: 100%
+  position: fixed
+  z-index: 1
+  p
+    float: left
+  nav
+    float: right
+
+.hamb
+  padding: $hamb-padding-y $hamb-padding-x
+  display: inline-block
+  cursor: pointer
+  transition-property: opacity, filter
+  transition-duration: 0.15s
+  transition-timing-function: linear
+  font: inherit
+  color: inherit
+  text-transform: none
+  background-color: transparent
+  border: 0
+  margin: 0
+  overflow: visible
+  &:hover
+    opacity: $hamb-hover-opacity
+  &.active
+    &:hover
+      opacity: $hamb-hover-opacity
+    .hamb-inner,
+    .hamb-inner::before,
+    .hamb-inner::after
+      background-color: $hamb-layer-color
+        
+    
+
+.hamb-box
+  width: $hamb-layer-width
+  height: $hamb-layer-height * 3 +  $hamb-layer-spacing * 2
+  display: inline-block
+  position: relative
+
+.hamb-inner
+  display: block
+  top: 50%
+  margin-top: $hamb-layer-height / -2
+  &,
+  &::before,
+  &::after
+    width: $hamb-layer-width
+    height: $hamb-layer-height
+    background-color: $hamb-layer-color
+    border-radius: $hamb-layer-border-radius
+    position: absolute
+    transition-property: transform
+    transition-duration: 0.15s
+    transition-timing-function: ease
+  &::before,
+  &::after
+    content: ""
+    display: block
+  &::before
+    top: ($hamb-layer-spacing + $hamb-layer-height) * -1
+  &::after
+    bottom: ($hamb-layer-spacing + $hamb-layer-height) * -1
+
+.hamb-slider
+  .hamb-inner
+    top: $hamb-layer-height / 2
+    &::before
+      top: $hamb-layer-height + $hamb-layer-spacing
+      transition-property: transform, opacity
+      transition-timing-function: ease
+      transition-duration: 0.15s
+    &::after
+      top: ($hamb-layer-height * 2) + ($hamb-layer-spacing * 2)
+  &.active
+    .hamb-inner
+      $y-offset: $hamb-layer-spacing + $hamb-layer-height
+      transform: translate3d(0, $y-offset, 0) rotate(45deg)
+      &::before
+        transform: rotate(-45deg) translate3d($hamb-layer-width / -7, $hamb-layer-spacing * -1, 0)
+        opacity: 0
+      &::after
+        transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg)
+
+.menu
+  position: absolute
+  right: 0
+  min-width: 300px
+  padding: 10px
+  margin: 0
+  background-color: #234779
+  z-index: 2
+  list-style-type: none
+  transform-origin: 0% 0%
+  transform: translate(100%, 0)
+  transition: transform 0.5s cubic-bezier(.75,.43,.03,1)
+  a
+    text-decoration: none
+    li
+      text-align: center
+      color: white
+      padding: 7px 0
+      font-size: 1.2rem
+      font-weight: 300
+      transition: text-shadow 0.3s ease
+      &:hover
+        font-weight: 400
+        text-shadow: white 0px 0px 15px
+  &.active
+    transform: none
