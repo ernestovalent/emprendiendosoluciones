@@ -1,4 +1,4 @@
-$hamb-padding-x           : 30px !default
+$hamb-padding-x           : 10px !default
 $hamb-padding-y           : 20px !default
 $hamb-layer-width         : 25px !default
 $hamb-layer-height        : 4px !default
@@ -12,11 +12,14 @@ $hamb-active-hover-opacity: $hamb-hover-opacity !default
 header
   width: 100%
   position: fixed
-  z-index: 1
+  z-index: 100
   p
     float: left
+    &.logo
+      transition: all 500ms linear
   nav
     float: right
+    z-index: 102
 
 .hamb
   padding: $hamb-padding-y $hamb-padding-x
@@ -98,25 +101,30 @@ header
   position: absolute
   right: 0
   min-width: 300px
+  width: 100vw
   padding: 10px
   margin: 0
-  background-color: #234779
-  z-index: 2
+  background-color: rgba(255, 255, 255, 0.9)
+  z-index: 102
   list-style-type: none
   transform-origin: 0% 0%
   transform: translate(100%, 0)
   transition: transform 0.5s cubic-bezier(.75,.43,.03,1)
-  a
-    text-decoration: none
-    li
-      text-align: center
-      color: white
-      padding: 7px 0
-      font-size: 1.2rem
-      font-weight: 300
-      transition: text-shadow 0.3s ease
-      &:hover
-        font-weight: 400
-        text-shadow: white 0px 0px 15px
+  li
+    text-align: center
+    color: #183153
+    padding: 7px 0
+    font-size: 1.2rem
+    font-weight: 400
+    transition: text-shadow 0.3s ease
+    a
+      text-decoration: none
+      &:active
+        color: #183153
+    &:hover
+      font-weight: 700
+      text-shadow: white 0px 0px 15px
+    &.active
+      background-color: rgba(255, 255, 255, 0.7)
   &.active
     transform: none

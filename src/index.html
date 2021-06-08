@@ -23,59 +23,91 @@
 
 <body>
 	<header>
-		<p>Logo</p>
-		<nav>
-			<button class="hamb hamb-slider" type="button">
-				<span class="hamb-box">
-					<span class="hamb-inner"></span>
-				</span>
-			</button>
-			<ul class="menu">
-				<a href="#"><li>Inicio</li></a>
-				<a href="#"><li>¿Que hacemos?</li></a>
-				<a href="#"><li>Nuestros proyectos</li></a>
-				<a href="#"><li>Nuestro equipo</li></a>
-				<a href="#"><li>Contactanos</li></a>
-				<a href="#"><li>QR</li></a>
-			</ul>
-		</nav>
+		<div class="container">
+			<p class="logo" style="opacity: 0;">Emprendiendo Soluciones</p>
+			<nav>
+				<button class="hamb hamb-slider hide-up-l" type="button">
+					<span class="hamb-box">
+						<span class="hamb-inner"></span>
+					</span>
+				</button>
+				<ul class="menu hide-up-l">
+					<li data-menuanchor="inicio"><a href="#inicio">Inicio</a></li>
+					<li data-menuanchor="todo"><a href="#todo">¿Qué hacemos?</a></li>
+					<li data-menuanchor="projects"><a href="#projects">Nuestros proyectos</a></li>
+					<li data-menuanchor="team"><a href="#team">Nuestro equipo</a></li>
+					<li data-menuanchor="contact"><a href="#contact">Contáctanos</a></li>
+					<li data-menuanchor="qr"><a href="#qr">QR</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main id="fullpage">
-		<section class="section" id="presentation">
+		<section data-tooltip="Inicio" class="section presentation">
 			<div class="container">
 				<h1>Emprendiendo Soluciones</h1>
 			</div>
 		</section>
-		<section class="section" id="todo">
-			<h2>¿Que hacemos?</h2>
+		<section data-tooltip="¿Qué hacemos?" class="section">
+			<h2>¿Qué hacemos?</h2>
 		</section>
-		<section class="section" id="projects">
+		<section data-tooltip="Nuesros proyectos" class="section">
 			<h2>Nuestros proyectos</h2>
 		</section>
-		<section class="section" id="team">
+		<section data-tooltip="Nuestro equipo" class="section">
 			<h2>Nuestro equipo</h2>
 		</section>
-		<section class="section" id="contact">
-			<h3>Contactanos</h3>
+		<section data-tooltip="Contáctanos" class="section">
+			<h3>Contáctanos</h3>
 		</section>
-		<footer class="section">
+		<footer data-tooltip="QR" class="section fp-auto-height">
 			<h4>QR</h4>
 		</footer>
 	</main>
+
+	<div class="backgroundmenu"></div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
 		integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer">
 	</script>
 	<script>
-		new fullpage('#fullpage');
-		var hamb = document.querySelector('.hamb');
-		var menu = document.querySelector('.menu');
+		let menu = document.querySelector('.menu');
+		let hamb = document.querySelector('.hamb');
+		let background = document.querySelector('.backgroundmenu');
+		let logo = document.querySelector('.logo');
+
+		new fullpage('#fullpage',{
+			anchors: ['inicio','todo','projects','team','contact','qr'],
+			menu: '.menu',
+			navigation: true,
+			onLeave: function (origin, destination) {
+				menu.classList.remove("active");
+				hamb.classList.remove("active");
+				background.classList.remove("active");
+				if(origin.anchor == "inicio"){
+					logo.style.opacity = 1;
+				}else if (destination.anchor == "inicio") {
+					logo.style.opacity = 0;
+				}
+			}
+		});
+		
 		hamb.addEventListener("click",function () {
-			this.classList.toggle("active");
+			hamb.classList.toggle("active");
 			menu.classList.toggle("active");
-		},false)
+			background.classList.toggle("active");
+		},false);
+
+		document.onclick = function(e){
+			if (e.target === background) {
+				hamb.classList.remove("active");
+				menu.classList.remove("active");
+				background.classList.remove("active");
+			}
+		};
+		
 	</script>
 </body>
 

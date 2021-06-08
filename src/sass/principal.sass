@@ -1,13 +1,22 @@
 ///import css-variables from grid
 @import 'grid'
-@import 'nav'
+
 body
   font-family: 'Montserrat', sans-serif
   background-color: #183153
   color: white
+.backgroundmenu
+  &.active
+    background-color: transparent
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: block
 .section
   text-align: center
-#presentation
+.presentation
   color: white
   text-shadow: 0px -1px 10px white
   font-size: 1rem
@@ -15,9 +24,19 @@ body
   background-repeat: no-repeat
   background-image: url('../img/logo-s.png'), linear-gradient(#234779,#183153)
   background-size: contain
-  @media #{$s}
+  @media #{$s-u}
     font-size: 1.2rem
-  @media #{$m}
+  @media #{$m-u}
     font-size: 1.8rem
-  @media #{$l}
+  @media #{$l-u}
     font-size: 2.2rem
+
+#fp-nav,
+.fp-slidesNav
+  ul
+    li
+      a
+        span
+          background: #FFF !important
+
+@import 'nav'

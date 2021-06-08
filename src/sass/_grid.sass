@@ -1,22 +1,51 @@
 // Grid and sizes
 $cols: 12 !default
-$breakpoint-small: 400px !default
-$breakpoint-medium: 600px !default
-$breakpoint-large: 990px !default
-$breakpoint-extralarge: 1280px !default
+$breakpoint-small: 425px !default
+$breakpoint-medium: 768px !default
+$breakpoint-large: 1024px !default
+$breakpoint-extralarge: 1440px !default
 	
-// Media Querys
-$s: "only screen and (min-width : #{$breakpoint-small})" !default
-$m: "only screen and (min-width : #{$breakpoint-medium})" !default
-$l: "only screen and (min-width : #{$breakpoint-large})" !default
-$xl: "only screen and (min-width : #{$breakpoint-extralarge})" !default
+// Show Up Media Querys
+$s-u: "only screen and (min-width : #{$breakpoint-small})" !default
+$m-u: "only screen and (min-width : #{$breakpoint-medium})" !default
+$l-u: "only screen and (min-width : #{$breakpoint-large})" !default
+$xl-u: "only screen and (min-width : #{$breakpoint-extralarge})" !default
+
+// Show Only Media Querys
+$s-o: "only screen and (max-width : #{$breakpoint-small})" !default
+$m-o: "only screen and (min-width : #{$breakpoint-small}) and (max-width : #{$breakpoint-medium})" !default
+$l-o: "only screen and (min-width : #{$breakpoint-medium}) and (max-width : #{$breakpoint-large})" !default
+$xl-o: #{$xl-u}
+
+// Show Down Media Query
+$s-d: #{$s-o}
+$m-d: "only screen and (max-width: #{$breakpoint-medium})" !default
+$l-d: "only screen and (max-width: #{$breakpoint-large})" !default
+$xl-d: "only screen and (max-width: #{$breakpoint-extralarge})" !default
+
 
 .container
 	margin: 0 auto
 	max-width: #{$breakpoint-extralarge}
-	width: 95%
-	@media #{$m}
-		width: 90%
-	@media #{$xl}
-		width: 85%
+	width: 90%
+	@media #{$xl-u}
+		width: 88%
 
+.hide
+	display: none !important
+	&-only
+		&-o
+			@media #{$s-o}
+				display: none !important
+	&-up
+		&-s
+			@media #{$s-u}
+				display: none !important
+		&-m
+			@media #{$m-u}
+				display: none !important
+		&-l
+			@media #{$l-u}
+				display: none !important
+.show
+	display: block !important
