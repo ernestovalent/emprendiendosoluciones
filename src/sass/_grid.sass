@@ -27,15 +27,21 @@ $xl-d: "only screen and (max-width: #{$breakpoint-extralarge})" !default
 .container
 	margin: 0 auto
 	max-width: #{$breakpoint-extralarge}
-	width: 90%
+	width: 75%
+	@media #{$m-u}
+		width: 85%
 	@media #{$xl-u}
-		width: 88%
+		width: 75%
 
 .hide
 	display: none !important
 	&-only
 		&-o
 			@media #{$s-o}
+				display: none !important
+	&-down
+		&-s
+			@media #{$s-d}
 				display: none !important
 	&-up
 		&-s

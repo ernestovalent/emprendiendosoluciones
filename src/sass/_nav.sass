@@ -1,5 +1,5 @@
-$hamb-padding-x           : 10px !default
-$hamb-padding-y           : 20px !default
+$hamb-padding-x           : 5px !default
+$hamb-padding-y           : 12px !default
 $hamb-layer-width         : 25px !default
 $hamb-layer-height        : 4px !default
 $hamb-layer-spacing       : 6px !default
@@ -13,8 +13,18 @@ header
   width: 100%
   position: fixed
   z-index: 100
+  background: rgba(0, 0, 0, 0)
   p
     float: left
+    font-weight: bold
+    @media #{$s-o}
+      font-size: 0.7rem
+      margin-top: 19px
+    @media #{$s-u}
+      font-size: 0.9rem
+      margin-top: 16px
+    @media #{$l-u}
+      font-size: 1rem
     &.logo
       transition: all 500ms linear
   nav
@@ -128,3 +138,36 @@ header
       background-color: rgba(255, 255, 255, 0.7)
   &.active
     transform: none
+
+@keyframes bounce 
+  from,
+  20%,
+  53%,
+  to 
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+  40%,
+  43% 
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+
+  70% 
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+
+  80% 
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0) scaleY(0.95);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+
+  90% 
+    -webkit-transform: translate3d(0, -4px, 0) scaleY(1.02);
+    transform: translate3d(0, -4px, 0) scaleY(1.02);

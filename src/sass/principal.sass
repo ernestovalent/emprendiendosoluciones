@@ -3,7 +3,7 @@
 
 body
   font-family: 'Montserrat', sans-serif
-  background-color: #183153
+  background-color: #201761
   color: white
 .backgroundmenu
   &.active
@@ -16,20 +16,9 @@ body
     display: block
 .section
   text-align: center
-.presentation
-  color: white
-  text-shadow: 0px -1px 10px white
-  font-size: 1rem
-  background-position: center
-  background-repeat: no-repeat
-  background-image: url('../img/logo-s.png'), linear-gradient(#234779,#183153)
-  background-size: contain
-  @media #{$s-u}
-    font-size: 1.2rem
-  @media #{$m-u}
-    font-size: 1.8rem
-  @media #{$l-u}
-    font-size: 2.2rem
+  p
+    line-height: 150%
+
 
 #fp-nav,
 .fp-slidesNav
@@ -40,3 +29,72 @@ body
           background: #FFF !important
 
 @import 'nav'
+
+
+#presentation
+  background-image: url('../img/logo-s.png'), linear-gradient(#183153,#234779)
+  background-position: center 65%
+  background-repeat: no-repeat
+  background-size: contain
+  text-shadow: 0px -1px 10px #468DF2
+  font-size: 1rem
+  @media #{$s-u}
+    font-size: 1.2rem
+  @media #{$m-u}
+    font-size: 1.8rem
+  @media #{$l-u}
+    font-size: 2.2rem
+  .down
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 10px
+    font-size: 0.9rem
+    animation: bounce
+    animation-duration: 2s
+    animation-iteration-count: infinite
+    .downicon
+      display: block
+      width: 20px
+      height: 20px
+      background-image: url('../img/down.svg')
+      left: 0
+      right: 0
+      margin: 0 auto
+
+#solutions
+  background: linear-gradient(#234779, #413E9E)
+
+#tools
+  background: linear-gradient(#413E9E, #1A516B)
+
+#examples
+  background: linear-gradient(#1A516B, #175D61)
+
+#people
+  background: linear-gradient(#175D61, #3368C2)
+  .teams-slider
+    display: flex
+    overflow: hidden
+    overflow-x: scroll
+    scroll-snap-type: x mandatory
+    scroll-behavior: smooth
+    -webkit-overflow-scrolling: touch
+    .team-slide
+      scroll-snap-align: center
+      flex-shrink: 0
+      padding: 0 20px
+      img
+        border-radius: 50%
+      p
+        font-size: 1.5rem
+        font-weight: 300
+
+      
+
+#email
+  background: linear-gradient(#3368C2, #5942BA)
+
+#link
+  background: linear-gradient(#5942BA, #201761)
+
