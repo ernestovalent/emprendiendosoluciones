@@ -75,15 +75,26 @@ body
   background: linear-gradient(#175D61, #3368C2)
   .teams-slider
     display: flex
-    overflow: hidden
-    overflow-x: scroll
+    overflow-x: auto
     scroll-snap-type: x mandatory
     scroll-behavior: smooth
     -webkit-overflow-scrolling: touch
+    cursor: grab
+    @media #{$s-u}
+      &::-webkit-scrollbar
+        width: 10px
+        height: 10px
+      &::-webkit-scrollbar-thumb
+        background: rgba(255, 255, 255, 0.1)
+        border-radius: 15px
+        &:hover
+          background: rgba(255, 255, 255, 0.4)
     .team-slide
+      display: inline-flex
       scroll-snap-align: center
-      flex-shrink: 0
-      padding: 0 20px
+      width: 100%
+      margin: 0 65px
+      flex-direction: column
       img
         border-radius: 50%
       p
