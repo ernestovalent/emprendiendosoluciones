@@ -1,11 +1,10 @@
 {
   "name": "emprendiendosoluciones",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A static web site with node and grunt",
-  "main": "Gruntfile.js",
   "scripts": {
-    "test": "grunt monitor",
-    "compile": "grunt compile"
+    "dev": "webpack serve --open --mode development --config webpack.dev.js",
+    "build": "webpack --mode production --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -18,17 +17,15 @@
   },
   "homepage": "https://github.com/ernestovalent/emprendiendosoluciones#readme",
   "devDependencies": {
-    "express": "^4.17.1",
-    "grunt": "^1.4.1",
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-sass": "^2.0.0",
-    "grunt-contrib-uglify": "^5.0.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-express-server": "^0.5.4",
-    "grunt-sass": "^3.1.0",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "html-loader": "^2.1.2",
     "node-sass": "^6.0.0",
-    "path": "^0.12.7"
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {}
 }
