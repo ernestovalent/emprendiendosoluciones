@@ -1,1 +1,2 @@
-import index from './index.html';
+require('./js/menu');
+require('./sass/principal.sass');

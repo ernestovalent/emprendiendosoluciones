@@ -1,19 +1,27 @@
 const { merge } = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
+
 /** @type {import('webpack').Configuration} */
 
 module.exports = merge(common, {
   mode: 'production',
-  entry: './src/js/menu.js',
   output:{
-    filename: 'bundle.js',
+    filename: 'main.js',
+    publicPath: 'http://emprendiendosoluciones/'
   },
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource'
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
       }
-    ]
-  }
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin()
+  ],
 });

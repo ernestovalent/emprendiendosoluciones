@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Emprendiendo Soluciones</title>
+	<title><%= htmlWebpackPlugin.options.title %></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Ernesto Valentin Caamal Peech" />
@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.css"
 		integrity="sha512-RVmrWua3k1yTDEOg4Yzs2bK5+Thh7nM6jrhDq/6/5/Mwa0JbYe4pP4YMK5sqghKz01T3DgrwYc57Jaf1PSurCg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -24,7 +23,7 @@
 <body style="background: #183153;">
 	<header>
 		<div class="container">
-			<p class="logo" style="opacity: 0;">Emprendiendo Soluciones</p>
+			<p class="logo" style="opacity: 0;"><%= htmlWebpackPlugin.options.title %></p>
 			<nav>
 				<button class="hamb hamb-slider hide-up-l" type="button">
 					<span class="hamb-box">
@@ -47,7 +46,7 @@
 	<main id="fullpage">
 		<section data-tooltip="Inicio" class="section" id="presentation">
 			<div class="container">
-				<h1>Emprendiendo Soluciones</h1>
+				<h1><%= htmlWebpackPlugin.options.title %></h1>
 				<p>¡Te ayudamos a alcanzar el éxito!</p>
 				<p>💪</p>
 				<div class="down" id="downmodal">
@@ -89,21 +88,21 @@
 				<h2>Nuestro equipo</h2>
 				<div class="teams-slider">
 					<div class="team-slide">
-						<img data-src="https://raw.githubusercontent.com/ernestovalent/emprendiendosoluciones/main/src/img/user.png" alt="Valentin foto">
+						<img data-src="assets/images/valentin-profile.png" alt="Valentin foto">
 						<p>Ernesto Valentin Caamal Peech</p>
 						<div class="social-network">
-							<span>Facebook</span>
-							<span>Email</span>
-							<span>Github</span>
+							<span><a href="http://facebook.com"><img data-src="assets/images/social-facebook-variant.svg" alt="Facebook"></a></span>
+							<span><a href="http://facebook.com"><img data-src="assets/images/social-instagram.svg" alt="Facebook"></a></span>
+							<span><a href="http://facebook.com"><img data-src="assets/images/social-linkedin-variant.svg" alt="Facebook"></a></span>
 						</div>
 					</div>
 					<div class="team-slide">
-						<img data-src="https://raw.githubusercontent.com/ernestovalent/emprendiendosoluciones/main/src/img/user.png" alt="Valentin foto">
+						<img data-src="assets/images/roger-profile.png" alt="Valentin foto">
 						<p>Roger Alfonso Hernandez Rodriguez</p>
 						<div class="social-network">
 							<span>Facebook</span>
+							<span>Instagram</span>
 							<span>Email</span>
-							<span>Github</span>
 						</div>
 					</div>
 				</div>
@@ -127,7 +126,6 @@
 		integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer">
 	</script>
-	<script src="main.js"></script>
 </body>
 
 </html>

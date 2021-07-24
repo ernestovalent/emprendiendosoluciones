@@ -5,7 +5,6 @@ let background = document.querySelector('.backgroundmenu');
 let logo = document.querySelector('.logo');
 let header = document.querySelector('header');
 
-
 new fullpage('#fullpage', {
 	anchors: ['inicio', 'who', 'todo', 'projects', 'team', 'contact', 'qr'],
 	menu: '.menu',
@@ -23,6 +22,22 @@ new fullpage('#fullpage', {
 		}
 	}
 });
+
+document.onclick = (e) => {
+	if (e.target === background) {
+		hamb.classList.remove("active");
+		menu.classList.remove("active");
+		background.classList.remove("active");
+	};
+};
+
+hamb.onclick = (e) => {
+	hamb.classList.toggle("active");
+	menu.classList.toggle("active");
+	background.classList.toggle("active");
+};
+
+
 
 /* document.addEventListener('DOMContentLoaded', function () {
 	console.log('Windows is load');
@@ -62,21 +77,11 @@ new fullpage('#fullpage', {
 
 	teams.addEventListener('mousedown', mouseDownHandler);
 
-	hamb.addEventListener("click", function () {
-		hamb.classList.toggle("active");
-		menu.classList.toggle("active");
-		background.classList.toggle("active");
-	}, false);
+	
 
 }); */
 
 
 
-document.onclick = function (e) {
-	if (e.target === background) {
-		hamb.classList.remove("active");
-		menu.classList.remove("active");
-		background.classList.remove("active");
-	};
-};
+
 
